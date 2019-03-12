@@ -1,11 +1,13 @@
 package com.example.springboot.controller;
 
+import com.example.springboot.common.util.RedisUtil;
 import com.example.springboot.dao.UserMapper;
 import com.example.springboot.dao.domain.Person;
 import com.example.springboot.dao.domain.Person1;
 import com.example.springboot.dao.domain.User;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 
 import java.util.List;
 
@@ -21,6 +23,9 @@ public class UserControllerTest extends BaseControllerTest {
     private UserMapper userMapper;
 
     @Autowired
+    private RedisUtil redisUtil;
+
+    @Autowired
     Person person;
 
     @Test
@@ -28,6 +33,12 @@ public class UserControllerTest extends BaseControllerTest {
         List<User> userList =  userMapper.listUser();
         System.out.println(userList);
         System.out.println(person);
+
+        redisUtil.setKey("aaa","你好！");
+
+        String a = redisUtil.getValue("aaa");
+        System.out.println(a);
+
     }
 
 

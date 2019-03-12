@@ -4,9 +4,10 @@ import com.example.springboot.dao.domain.User;
 import com.example.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -26,5 +27,17 @@ public class UserController {
     public String listUser(){
         List<User> list = userService.listUser();
         return list.toString();
+    }
+
+    @RequestMapping(value = "update",method = RequestMethod.POST)
+    public String update(HttpServletRequest request) {
+        Long id = Long.parseLong(request.getParameter("id"));
+        String password = request.getParameter("password");
+        int result = userService.update(id, password);
+        if (result > 0) {
+            return "update success!";
+        } else {
+            return "update fail";
+        }
     }
 }

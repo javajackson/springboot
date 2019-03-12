@@ -19,6 +19,13 @@ spring:
 
       exclude: test/**
 
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    database: 1
+
+
 #spring.devtools.restart.additional-paths: src/main/java
 
 

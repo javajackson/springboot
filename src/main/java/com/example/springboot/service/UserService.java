@@ -1,6 +1,7 @@
 package com.example.springboot.service;
 
 import com.example.springboot.dao.domain.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -12,4 +13,5 @@ import java.util.List;
  */
 public interface UserService {
     List<User> listUser();
+    int update(@Param("id") Long id, @Param("password") String password);
 }

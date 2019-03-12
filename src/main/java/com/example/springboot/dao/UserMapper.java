@@ -1,6 +1,7 @@
 package com.example.springboot.dao;
 
 import com.example.springboot.dao.domain.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -13,4 +14,6 @@ import java.util.List;
 public interface UserMapper {
 
     List<User> listUser();
+
+    int update(@Param("id") Long id, @Param("password") String password);
 }

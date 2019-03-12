@@ -6,4 +6,8 @@
 	<select id="listUser" resultType="com.example.springboot.dao.domain.User">
 		SELECT * FROM user
 	</select>
+
+	<update id="update">
+		update user set password = #{password} WHERE id = #{id}
+	</update>
 </mapper>
