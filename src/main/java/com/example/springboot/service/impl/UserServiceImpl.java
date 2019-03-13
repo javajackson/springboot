@@ -54,4 +54,11 @@ public class UserServiceImpl implements UserService {
         }
 
     }
+
+    @Override
+    public int insert(String username, String password) {
+        return userMapper.insert(username, password);
+    }
+
+
 }

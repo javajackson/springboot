@@ -10,4 +10,8 @@
 	<update id="update">
 		update user set password = #{password} WHERE id = #{id}
 	</update>
+
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO user (username,password) values (#{username}, #{password})
+	</insert>
 </mapper>

@@ -40,4 +40,21 @@ public class UserController {
             return "update fail";
         }
     }
+
+    @RequestMapping("/insert")
+    public String insert(HttpServletRequest request) {
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
+        int result = userService.insert(username, password);
+        String message = "";
+
+        if (result > 0) {
+            message = "插入成功，主键id为：" + result;
+        }
+
+        return message;
+    }
 }

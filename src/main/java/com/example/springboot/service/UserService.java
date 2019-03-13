@@ -14,4 +14,5 @@ import java.util.List;
 public interface UserService {
     List<User> listUser();
     int update(@Param("id") Long id, @Param("password") String password);
+    int insert(@Param("username") String username, @Param("password") String password);
 }
