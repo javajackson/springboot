@@ -46,8 +46,8 @@ public class UserController {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         User user = new User();
-        user.setUsername(username);
-        user.setPassword(password);
+//        user.setUsername(username);
+//        user.setPassword(password);
         int result = userService.insert(username, password);
         String message = "";
 

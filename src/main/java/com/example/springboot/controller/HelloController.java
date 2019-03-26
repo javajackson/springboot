@@ -1,6 +1,11 @@
 package com.example.springboot.controller;
 
+import com.example.springboot.service.HelloService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.util.StopWatch;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,11 +18,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
+    private final static Logger logger = LoggerFactory.getLogger(HelloController.class);
 
+    @Autowired
+    private HelloService helloService;
 
     @RequestMapping("/hello")
-    public String index(){
-        return "f";
+    public String index() throws InterruptedException {
+        logger.info("/hello start");
+        StopWatch watch = new StopWatch("/hello:");
+        watch.start();
+        Thread.sleep(2000);
+        watch.stop();
+        System.out.println(watch.prettyPrint());
+        logger.info("/hello end, it takes " + watch.getTotalTimeMillis() + "ms");
+        return helloService.hello();
     }
     @RequestMapping("/hello2")
     public String index2(){
