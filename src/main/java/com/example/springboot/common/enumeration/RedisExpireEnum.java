@@ -7,7 +7,8 @@ package com.example.springboot.common.enumeration;
  * @注意：本内容仅限于杭州阿拉丁信息科技股份有限公司内部传阅，禁止外泄以及用于其他的商业目的
  */
 public enum RedisExpireEnum {
-    EXPIRE_FOREVER(Integer.MAX_VALUE, "永久保存，其实也需要设置一个最大正整数"),
+
+    EXPIRE_FOREVER(new Long(Integer.MAX_VALUE), "永久保存，其实也需要设置一个最大正整数"),
     EXPIRE_1S(1L, "1秒"),
     EXPIRE_3S(3L, "3秒"),
     EXPIRE_5S(5L, "5秒"),
@@ -38,11 +39,11 @@ public enum RedisExpireEnum {
 
 
 
-    private long seconds;
+    private Long seconds;
 
     private String desc;
 
-    private RedisExpireEnum(long seconds, String desc){
+    private RedisExpireEnum(Long seconds, String desc){
         this.seconds = seconds;
         this.desc = desc;
     }

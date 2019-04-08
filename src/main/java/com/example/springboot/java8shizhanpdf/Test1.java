@@ -4,6 +4,7 @@ import com.example.springboot.java8shizhanpdf.domain.Apple;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 /**
  * @Author: chenglvpeng
@@ -30,9 +31,18 @@ public class Test1 {
 
 //        List<Apple> result = filterGreenApple(inventory); 需求一
 //        List<Apple> result =  filterAppleByColor(inventory, "green"); 需求二
-        List<Apple> result = filterAppleByWeight(inventory, 140);
+//        List<Apple> result = filterApple(inventory, new AppleGreenColorPredicate()); //绿色苹果
+//        List<Apple> result = filterApple(inventory, new AppleHeavyWeightPredicate());  //重量大于等于140的苹果
+        //重量大于等于140且颜色是红色的苹果
+//        List<Apple> result = filterApple(inventory, new AppleRedAndHeavyPredicate());
+        //第六次尝试
+//        List<Apple> result = filterApple(inventory, apple -> "green".equals(apple.getColor()));
 
-        System.out.println(result);
+        List<Apple> redApple = filter(inventory, apple -> apple.getColor().equals("red"));
+
+//        System.out.println(result);
+
+        System.out.println(redApple);
 
     }
 
@@ -93,6 +103,23 @@ public class Test1 {
         for (Apple apple : inventory) {
             if (p.test(apple)) {
                 result.add(apple);
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 第七次尝试：
+     * @param list
+     * @param p
+     * @param <T>
+     * @return
+     */
+    private static <T> List<T> filter(List<T> list, Predicate<T> p) {
+        List<T> result = new ArrayList<>();
+        for (T t : list) {
+            if (p.test(t)) {
+                result.add(t);
             }
         }
         return result;

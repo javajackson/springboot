@@ -1,12 +1,16 @@
 package com.example.springboot.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.example.springboot.service.HelloService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+
 import org.springframework.util.StopWatch;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -41,5 +45,18 @@ public class HelloController {
     @RequestMapping("/hello3")
     public String index3(){
         return "hello3";
+    }
+
+    @RequestMapping("/hello4")
+    public String hello4(@RequestBody String body) {
+
+        JSONObject object = JSONObject.parseObject(body);
+        String userId = object.getString("userId");
+        String password = object.getString("password");
+        Integer age = object.getInteger("age");
+        System.out.println(userId + "," + password + "," + age);
+        System.out.println(body);
+        return "";
+
     }
 }
