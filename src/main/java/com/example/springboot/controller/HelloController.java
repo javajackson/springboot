@@ -1,6 +1,7 @@
 package com.example.springboot.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.example.springboot.dao.domain.Person;
 import com.example.springboot.service.HelloService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -58,5 +59,11 @@ public class HelloController {
         System.out.println(body);
         return "";
 
+    }
+
+    @RequestMapping("/hello5")
+    public String hello5(@RequestBody Person person) {
+        System.out.println();
+        return person.toString();
     }
 }

@@ -35,6 +35,8 @@ public class Test1 {
 //        List<Apple> result = filterApple(inventory, new AppleHeavyWeightPredicate());  //重量大于等于140的苹果
         //重量大于等于140且颜色是红色的苹果
 //        List<Apple> result = filterApple(inventory, new AppleRedAndHeavyPredicate());
+
+
         //第六次尝试
 //        List<Apple> result = filterApple(inventory, apple -> "green".equals(apple.getColor()));
 
@@ -107,6 +109,9 @@ public class Test1 {
         }
         return result;
     }
+
+
+
 
     /**
      * 第七次尝试：

@@ -1,6 +1,5 @@
 package com.example.springboot;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
