@@ -32,7 +32,7 @@ public class Producer {
         String routingKey = "hola";
 
         //发布消息
-        byte[] messageBodyBytes = "quitqqq".getBytes();
+        byte[] messageBodyBytes = "quitqqq".getBytes("UTF-8");
         channel.basicPublish(exchangeName, routingKey, null, messageBodyBytes);
 
         channel.close();

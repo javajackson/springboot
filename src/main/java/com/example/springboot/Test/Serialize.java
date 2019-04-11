@@ -25,16 +25,24 @@ public class Serialize {
       list.add(1);
       list.add(2);
 
-
+        ObjectOutputStream oos = null;
 
         try {
             FileOutputStream fos = new FileOutputStream("a.txt");
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos = new ObjectOutputStream(fos);
             oos.writeObject(list);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            if (null != oos) {
+                try {
+                    oos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
     }

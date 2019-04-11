@@ -39,7 +39,7 @@ public enum  RedisIndexEnum {
         return index;
     }
 
-    public void setIndex(int index) {
+    private void setIndex(int index) {
         this.index = index;
     }
 
@@ -47,7 +47,7 @@ public enum  RedisIndexEnum {
         return desc;
     }
 
-    public void setDesc(String desc) {
+    private void setDesc(String desc) {
         this.desc = desc;
     }
 }

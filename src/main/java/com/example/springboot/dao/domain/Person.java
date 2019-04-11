@@ -1,6 +1,7 @@
 package com.example.springboot.dao.domain;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -32,6 +33,7 @@ public class Person implements Serializable {
 
     Map<String, String> maps;
 
+    @JsonProperty("someSingleValuedField")
     List<String> list;
 
     Dog dog;

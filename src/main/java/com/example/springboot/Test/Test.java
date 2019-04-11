@@ -12,10 +12,11 @@ public class Test {
     public void test() {
         ResultSet rs = null;
         PreparedStatement ps = null;
+        Connection connection = null;
         try {
             //Class.forName("com.mysql.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/test?characterEncoding=utf8&useSSL=true&serverTimezone=GMT%2B8";
-            Connection connection = DriverManager.getConnection(url,"root", "root");
+            connection = DriverManager.getConnection(url,"root", "root");
             String sql = "select user_name from af_user";
             ps = connection.prepareStatement(sql);
             rs = ps.executeQuery();
@@ -28,6 +29,9 @@ public class Test {
         } finally {
 
             try {
+                if (null != connection) {
+                    connection.close();
+                }
                 if (null != rs) {
                     rs.close();
                 }

@@ -16,13 +16,13 @@ import java.util.stream.Collectors;
 public class Test2 {
     public static void main(String[] args) {
         Person p1 = new Person();
-        p1.setAge(20);
+       /* p1.setAge(20);
         Person p2 = new Person();
         p2.setAge(25);
         Person p3 = new Person();
         p3.setAge(15);
         Person p4 = new Person();
-        p4.setAge(30);
+        p4.setAge(30);*/
         List<Person> list = new ArrayList<>();
         for (int i =0; i< 10000; i++) {
             Person p = new Person();

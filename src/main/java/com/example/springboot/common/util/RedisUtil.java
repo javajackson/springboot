@@ -37,15 +37,17 @@ public class RedisUtil {
 
     public <T> void listPushAll( String key, List<T> value, Long seconds) {
         if (null != key && !CollectionUtils.isEmpty(value)) {
-            try {
+
+            this.redisTemplate.opsForList().rightPushAll(key, value);
+            this.redisTemplate.expire(key, seconds, TimeUnit.SECONDS);
+            /*try {
 
 
-                this.redisTemplate.opsForList().rightPushAll(key, value);
-                this.redisTemplate.expire(key, seconds, TimeUnit.SECONDS);
+
 //                this.redisTemplate.exec();
             } catch (Exception var6) {
 //                logger.error("listPushAll e:{}", var6);
-            }
+            }*/
 
         }
     }

@@ -52,7 +52,7 @@ public enum RedisExpireEnum {
         return seconds;
     }
 
-    public void setSeconds(long seconds) {
+    private void setSeconds(long seconds) {
         this.seconds = seconds;
     }
 
@@ -60,7 +60,7 @@ public enum RedisExpireEnum {
         return desc;
     }
 
-    public void setDesc(String desc) {
+    private void setDesc(String desc) {
         this.desc = desc;
     }
 }
