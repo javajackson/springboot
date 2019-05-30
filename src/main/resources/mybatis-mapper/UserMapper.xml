@@ -3,7 +3,7 @@
 <mapper namespace="com.example.springboot.dao.UserMapper">
 
 	<!--List<User> listUser();-->
-	<select id="listUser" resultType="com.example.springboot.dao.domain.User">
+	<select id="listUser" resultType="User">
 		SELECT * FROM user
 	</select>
 

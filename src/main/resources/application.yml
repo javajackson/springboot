@@ -35,7 +35,7 @@ mybatis:
   #config-location: classpath:mybatis-config.xml
 
   # aliasesPackage: com.ald.ishangjie.dao.domain,com.ald.ishangjie.web.query
-
+  type-aliases-package: com.example.springboot.dao.domain
 
 person:
   lastName: 好

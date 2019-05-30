@@ -7,6 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @Author: chenglvpeng
  * @Date: 2019/3/14  19:59
@@ -21,7 +23,7 @@ public class RecordController {
 
     @RequestMapping("/pay")
     @Transactional(rollbackFor = Exception.class)
-    public String add(Record record) {
+    public String add(Record record, HttpServletRequest request) {
         int result = recordService.insert(record);
        throw new RuntimeException();
 

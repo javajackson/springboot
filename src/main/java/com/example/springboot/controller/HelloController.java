@@ -1,18 +1,13 @@
 package com.example.springboot.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.example.springboot.dao.domain.Person;
 import com.example.springboot.service.HelloService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-
-import org.springframework.http.MediaType;
 import org.springframework.util.StopWatch;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -29,8 +24,17 @@ public class HelloController {
     @Autowired
     private HelloService helloService;
 
+
+    /** 
+     * @param a
+     * @param b	 
+     * @return java.lang.String
+     * @author chenglvpeng
+     * @date 2019/5/9 19:20
+     * @description
+     */
     @RequestMapping("/hello")
-    public String index() throws InterruptedException {
+    public String index(String a, String b) throws InterruptedException {
         logger.info("/hello start");
         StopWatch watch = new StopWatch("/hello:");
         watch.start();
